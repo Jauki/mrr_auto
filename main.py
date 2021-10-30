@@ -24,7 +24,8 @@ class MRRTask:
             sentences = []
             for item in lists:
                 box = item.find('div', class_="single-sentence-box").text
-                sentences.append(box)
+                box = box.split('.')
+                sentences.append(box[0])
             return sentences[0]
         except IndexError:
             print(f'Some Words cant be converted! Look up yourself - Sentence Manager')
