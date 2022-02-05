@@ -13,7 +13,8 @@
   + [googletrans](https://pypi.org/project/googletrans/)
     + I used the version 3.1.0a0 (the other libraries work fine)
     + `pip install googletrans==3.1.0a0`
-
++ when using Pycharm to execute use the built in Code Runner, else run the Command:
+ `python3.9 main.py`
 
 
 ## Usage 📝

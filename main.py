@@ -12,12 +12,15 @@ class MRRTask:
         self.src = src
 
     def translate(self):
+        print("translate")
         translator = Translator(service_urls=['translate.googleapis.com'])
+        print(translator.translate(self.src, dest="de").text)
         return translator.translate(self.src, dest="de").text
         pass
 
     def sentence(self):
         try:
+            print("Sentence")
             page = requests.get(urlSen + self.src)
             soup = BeautifulSoup(page.content, 'html.parser')
             lists = soup.find_all('li', class_="sentences-list-item")
@@ -34,6 +37,7 @@ class MRRTask:
 
     def synonym(self):
         try:
+            print("Synonym")
             page = requests.get(urlExp + self.src)
             soup = BeautifulSoup(page.content, 'html.parser')
             lists = soup.find_all('div', class_="single-synonym-box")
@@ -48,7 +52,8 @@ class MRRTask:
         pass
 
     def out(self):
-        return f'| {self.src} | {self.sentence()} | {self.synonym()} | {self.translate()} |\n'
+        print("out")
+        return f'| {self.src} | {self.sentence()} | {self.synonym()} |  {self.translate()} |\n'
 
 
 def print_file(object_list):
